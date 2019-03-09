@@ -1,5 +1,7 @@
 package edu.cecar.controladores;
 
+import android.util.Log;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -7,6 +9,11 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 
 public class ExtraerDatoCVLAC {
+
+
+    private ExtraerDatoCVLAC() {
+
+    }
 
     public static Investigador  getDatos(String url) {
 
@@ -36,7 +43,7 @@ public class ExtraerDatoCVLAC {
             String nombre = filasTabla.get(filaNombre).select("td").get(1).text();
             String nacionalidad = filasTabla.get(filanacionalidad).select("td").get(1).text();
             String sexo = filasTabla.get(filaSexo).select("td").get(1).text();
-
+            Log.i("Prueba","Prueba1");
             //Se crea el objeto investigador
             investigador = new Investigador(nombre, nacionalidad,sexo,true);
 
